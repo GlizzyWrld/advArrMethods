@@ -158,10 +158,10 @@ const cOruWords = words.filter(function(w){
     return w[0] === 'u' || w[0] ==='c'
 });
 
-const containVowels = words.filter(constainsVowel);
+const containVowels = words.filter(containsVowel);
 
 const noVowels = words.filter(function(word){
-    return !constainsVowel(word)
+    return !containsVowel(word)
 });
 
 const allCheckboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
@@ -203,3 +203,29 @@ const shorties = myFilter(words, function(word){
 const everyOtherWord = myFilter(words, function(word, i){
     return i % 2 === 0
 })
+
+//  some and every
+const overFive = words.some(function(word){
+    return word.length > 5;
+})
+
+words.some(function(word){
+    return word.indexOf('ca') !== -1
+})
+
+words.every(function(word){
+    return word.length >= 5;
+})
+
+function mySome(arr, callback){
+    for(let i = 0; i < arr.length; i++){
+        if(callback(arr[i], i, arr)) return true;
+    }
+    return false;
+}
+function myEvery(arr, callback){
+    for(let i = 0; i < arr.length; i++){
+        if(!callback(arr[i], i, arr)) return false;
+    }
+    return true;
+}
