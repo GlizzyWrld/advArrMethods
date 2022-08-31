@@ -1,0 +1,16 @@
+What is the difference between var and let?
+
+With var you can reassign and redeclare, but with let you cant redeclare with the let keyword. Var allows you to access hoisted variables. Let creates a block scope.
+
+What is the difference between var and const?
+
+With var you can reassign and redeclare and const you cannot do either. With var you can access hoisted variable. Const creates a block scope.
+
+What is the difference between let and const?
+ with let you can reassign, but with const you cant redeclare or reassign 
+
+What is hoisting?
+
+Basically it's how javascript compiles things such as variables into specific scopes and by putting variables at the top of scope. With var, it lets you access a variable name and undefined value before its used
+
+
