@@ -277,3 +277,23 @@ function myFindIndex(arr, callback){
 myFindIndex(scores, function(score){
     return score !== 0 && score % 2 === 0
 })
+
+// arrrow functions 
+const greet = () => {
+    console.log('HELLO!!!');
+};
+
+const makeMath = (num) =>
+   ( {
+        square : num * num,
+        double : num * 2
+    });
+
+
+    const cat = {
+        name: 'Bubs',
+        meow: function(){
+            return `${this.name} says MEOW!!`;
+        }
+
+    }
