@@ -13,17 +13,16 @@
 	width: 80%;
 	height: 80%;
 	border-radius: 50%;
+	animation-name: sliding-vertically 2000ms;
 }
 
 /* TODO: make pieces red/blue,  depending on player 1/2 piece */
 .piece.p1 {
 	background-color: red;
-	transition: 2000ms 2000ms background-color;
 }
 
 .piece.p2 {
 	background-color: blue;
-	transition: 2000ms 2000ms background-color;
 }
 
 /* column-top is table row of clickable areas for each column */
