@@ -12,56 +12,9 @@
  let board = []; // array of rows, each row is array of cells  (board[y][x])
 
 
- 
- function placeInTable(y, x) {
-    // TODO: make a div and insert into correct table cell
-    const piece = document.createElement("div");
-    piece.classList.add("piece");
-    piece.classList.add(`p${currPlayer}`);
-    // piece.style.top = -50 * (y + 2);
- 
-    const spot = document.getElementById(`${y}-${x}`);
-    spot.append(piece);
-  }
-  
-  /** endGame: announce game end */
-  
-  function endGame(msg) {
-    // TODO: pop up alert message
-    alert(msg);
-  }
   
  
 
- function handleClick(evt) {
-    // get x from ID of clicked cell
-    let x = +evt.target.id;
-  
-    // get next spot in column (if none, ignore click)
-    let y = findSpotForCol(x);
-    if (y === null) {
-      return;
-    }
-  
-    // place piece in board and add to HTML table
-    // TODO: add line to update in-memory board
-    board[y][x] = currPlayer
-    placeInTable(y, x);
-  
-    // check for win
-    if (checkForWin()) {
-      return endGame(`Player ${currPlayer} won!`);
-    }
-  
-    // check for tie
-    // TODO: check if all cells in board are filled; if so call, call endGame
-    if (board.every(row => row.every(cell => cell))) {
-        return endGame("It's a tie!")
-    }
-    // switch players
-    // TODO: switch currPlayer 1 <-> 2
-    currPlayer = currPlayer === 1 ? 2 : 1;
-  }
  
  /** makeBoard: create in-JS board structure:
   *    board = array of rows, each row is array of cells  (board[y][x])
@@ -128,11 +81,41 @@
   const piece = document.createElement("div");
   piece.classList.add("piece");
   piece.classList.add(`p${currPlayer}`);
-  // piece.style.top = -50 * (y + 2);
-
+ 
   const spot = document.getElementById(`${y}-${x}`);
   spot.append(piece);
 }
+
+function handleClick(evt) {
+  // get x from ID of clicked cell
+  let x = +evt.target.id;
+
+  // get next spot in column (if none, ignore click)
+  let y = findSpotForCol(x);
+  if (y === null) {
+    return;
+  }
+
+  // place piece in board and add to HTML table
+  // TODO: add line to update in-memory board
+  board[y][x] = currPlayer
+  placeInTable(y, x);
+
+  // check for win
+  if (checkForWin()) {
+    return endGame(`Player ${currPlayer} won!`);
+  }
+
+  // check for tie
+  // TODO: check if all cells in board are filled; if so call, call endGame
+  if (board.every(row => row.every(cell => cell))) {
+      return endGame("It's a tie!")
+  }
+  // switch players
+  // TODO: switch currPlayer 1 <-> 2
+  currPlayer = currPlayer === 1 ? 2 : 1;
+}
+
 
 /** endGame: announce game end */
 
