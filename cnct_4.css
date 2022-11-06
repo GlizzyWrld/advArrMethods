@@ -34,14 +34,6 @@
 #column-top td:hover {
 	background-color: gold;
 }
-/* @keyframes top-to-bottom {
-	0% {
-		top: -330px;
-	}
-	100% {
-		top: 5px;
-	}
-} */
 
 @keyframes fadeIn {
 	0% {
